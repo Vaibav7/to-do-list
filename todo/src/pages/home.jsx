@@ -28,10 +28,10 @@ export default function Home() {
     setError("");
     try {
       if (editTask) {
-        await axios.put(`http://localhost:3001/tasks/${editTask.id}`, formData);
+        await axios.put(`https://to-do-list-xy38.onrender.com/${editTask.id}`, formData);
         setEditTask(null);
       } else {
-        await axios.post("http://localhost:3001/tasks", formData);
+        await axios.post("https://to-do-list-xy38.onrender.com", formData);
       }
       await fetchTasks();
       setShowForm(false);
@@ -44,7 +44,7 @@ export default function Home() {
   // UPDATED toggleComplete to use /complete route
   const toggleComplete = async (task) => {
     try {
-      await axios.put(`http://localhost:3001/tasks/${task.id}/complete`, {
+      await axios.put(`https://to-do-list-xy38.onrender.com/${task.id}/complete`, {
         completed: !task.completed,
       });
       fetchTasks();
@@ -61,7 +61,7 @@ export default function Home() {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this task?")) return;
     try {
-      await axios.delete(`http://localhost:3001/tasks/${id}`);
+      await axios.delete(`https://to-do-list-xy38.onrender.com/${id}`);
       fetchTasks();
     } catch {
       setError("Failed to delete task");
