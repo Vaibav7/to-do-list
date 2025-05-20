@@ -11,7 +11,7 @@ export default function Home() {
 
   const fetchTasks = async () => {
     try {
-      const res = await axios.get("http://localhost:3001/tasks");
+      const res = await axios.get("https://to-do-list-xy38.onrender.com");
       setTasks(res.data);
       setError("");
     } catch {
